@@ -9,6 +9,7 @@ import vn.edu.iuh.fit.repositories.interfaces.ISkillRepository;
 
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Component
@@ -23,7 +24,7 @@ public class SkillRepositoryImpl implements ISkillRepository {
 
     @Override
     public boolean save(Skill skill) {
-        String sqlQuery = "insert into skill(skill_id, skill_description, skill_name, type) values (?, ?, ?, ?, ?)";
+        String sqlQuery = "insert into skill(skill_id, skill_description, skill_name, type) values (?, ?, ?, ?)";
 
         int result = jdbcTemplate.update(sqlQuery, skill.getId(), skill.getDescription(),  skill.getName(), skill.getType().getTypeNum());
         return result > 0;
@@ -44,9 +45,10 @@ public class SkillRepositoryImpl implements ISkillRepository {
     }
 
     @Override
-    public Skill getByID(UUID uuid) {
+    public Optional<Skill> getByID(UUID uuid) {
         String sqlQuery = "select * from skill where skill_id = ?";
-        return jdbcTemplate.queryForObject(sqlQuery, new SkillMapper(), uuid);
+        Skill skill = jdbcTemplate.queryForObject(sqlQuery, new SkillMapper(), uuid);
+        return skill != null ? Optional.of(skill) : Optional.empty();
     }
 
     @Override

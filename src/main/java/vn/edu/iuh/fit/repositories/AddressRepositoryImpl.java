@@ -9,6 +9,7 @@ import vn.edu.iuh.fit.repositories.interfaces.IAddressRepository;
 
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Component
@@ -48,10 +49,10 @@ public class AddressRepositoryImpl implements IAddressRepository {
     }
 
     @Override
-    public Address getByID(UUID uuid) {
+    public Optional<Address> getByID(UUID uuid) {
         String sqlQuery = "select * from address where id = ?";
-        return jdbcTemplate.queryForObject(sqlQuery, new BeanPropertyRowMapper<>(Address.class), uuid);
-
+        Address address = jdbcTemplate.queryForObject(sqlQuery, new BeanPropertyRowMapper<>(Address.class), uuid);
+        return address != null ? Optional.of(address) : Optional.empty();
     }
 
     @Override

@@ -18,4 +18,7 @@ public class Company {
     private String phone;
     private String webUrl;
 
+    public Company(UUID id) {
+        this.id = id;
+    }
 }

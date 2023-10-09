@@ -14,4 +14,7 @@ public class Job {
     private String description;
     private String name;
 
+    public Job(UUID id) {
+        this.id = id;
+    }
 }

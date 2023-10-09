@@ -16,4 +16,7 @@ public class Skill {
     private String name;
     private SkillType type;
 
+    public Skill(UUID id) {
+        this.id = id;
+    }
 }

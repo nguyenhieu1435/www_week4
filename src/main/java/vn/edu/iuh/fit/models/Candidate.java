@@ -18,4 +18,7 @@ public class Candidate {
     private Address address;
     private LocalDate dob;
 
+    public Candidate(UUID id) {
+        this.id = id;
+    }
 }

@@ -9,17 +9,19 @@ import vn.edu.iuh.fit.repositories.interfaces.ICandidateSkillRepository;
 
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Component
 public class CandidateSkillRepositoryImpl implements ICandidateSkillRepository {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
-
+    private CandidateSkillMapper candidateSkillMapper;
     @Autowired
-    public CandidateSkillRepositoryImpl(DataSource dataSource) {
+    public CandidateSkillRepositoryImpl(DataSource dataSource, CandidateSkillMapper candidateSkillMapper) {
         this.dataSource = dataSource;
         this.jdbcTemplate = new JdbcTemplate(dataSource);
+        this.candidateSkillMapper = candidateSkillMapper;
     }
 
     @Override
@@ -47,14 +49,15 @@ public class CandidateSkillRepositoryImpl implements ICandidateSkillRepository {
     }
 
     @Override
-    public CandidateSkill getByID(UUID canID, UUID skillID) {
+    public Optional<CandidateSkill> getByID(UUID canID, UUID skillID) {
         String sqlQuery = "select * from candidate_skill where can_id = ? and skill_id = ?";
-        return jdbcTemplate.queryForObject(sqlQuery, new CandidateSkillMapper(), canID, skillID);
+        CandidateSkill candidateSkill = jdbcTemplate.queryForObject(sqlQuery, candidateSkillMapper, canID, skillID);
+        return candidateSkill != null ? Optional.of(candidateSkill) : Optional.empty();
     }
 
     @Override
     public List<CandidateSkill> getAll() {
         String sqlQuery = "select * from candidate_skill";
-        return jdbcTemplate.query(sqlQuery, new CandidateSkillMapper());
+        return jdbcTemplate.query(sqlQuery, candidateSkillMapper);
     }
 }
