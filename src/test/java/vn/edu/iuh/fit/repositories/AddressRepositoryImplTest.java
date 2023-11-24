@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
-import vn.edu.iuh.fit.models.Address;
+import vn.edu.iuh.fit.backend.models.Address;
+import vn.edu.iuh.fit.backend.repositories.AddressRepositoryImpl;
 
 import java.util.UUID;
 

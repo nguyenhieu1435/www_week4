@@ -5,10 +5,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import vn.edu.iuh.fit.models.Address;
-import vn.edu.iuh.fit.models.Company;
-import vn.edu.iuh.fit.repositories.AddressRepositoryImpl;
-import vn.edu.iuh.fit.repositories.CompanyRepositoryImpl;
+import vn.edu.iuh.fit.backend.models.Address;
+import vn.edu.iuh.fit.backend.models.Company;
+import vn.edu.iuh.fit.backend.repositories.AddressRepositoryImpl;
+import vn.edu.iuh.fit.backend.repositories.CompanyRepositoryImpl;
 
 import java.util.List;
 import java.util.UUID;
@@ -35,15 +35,15 @@ public class JobSeekingApplication {
 			}
 		};
 	}
-	@Bean
-	CommandLineRunner test_2(){
-		return new CommandLineRunner() {
-			@Override
-			public void run(String... args) throws Exception {
-				List<Company> companyList = companyRepository.getAll();
-				System.out.println(companyList);
-
-			}
-		};
-	}
+//	@Bean
+//	CommandLineRunner test_2(){
+//		return new CommandLineRunner() {
+//			@Override
+//			public void run(String... args) throws Exception {
+//				List<Company> companyList = companyRepository.getAll();
+//				System.out.println(companyList);
+//
+//			}
+//		};
+//	}
 }

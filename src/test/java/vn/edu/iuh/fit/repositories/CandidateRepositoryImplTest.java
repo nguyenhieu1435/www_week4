@@ -3,8 +3,9 @@ package vn.edu.iuh.fit.repositories;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import vn.edu.iuh.fit.models.Address;
-import vn.edu.iuh.fit.models.Candidate;
+import vn.edu.iuh.fit.backend.models.Address;
+import vn.edu.iuh.fit.backend.models.Candidate;
+import vn.edu.iuh.fit.backend.repositories.CandidateRepositoryImpl;
 
 import java.time.LocalDate;
 import java.util.List;

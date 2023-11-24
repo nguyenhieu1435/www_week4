@@ -6,8 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
-import vn.edu.iuh.fit.models.Address;
-import vn.edu.iuh.fit.repositories.AddressRepositoryImpl;
+import vn.edu.iuh.fit.backend.models.Address;
+import vn.edu.iuh.fit.backend.repositories.AddressRepositoryImpl;
 
 import java.util.UUID;
 

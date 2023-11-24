@@ -3,10 +3,11 @@ package vn.edu.iuh.fit.repositories;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import vn.edu.iuh.fit.enums.SkillLevel;
-import vn.edu.iuh.fit.models.Job;
-import vn.edu.iuh.fit.models.JobSkill;
-import vn.edu.iuh.fit.models.Skill;
+import vn.edu.iuh.fit.backend.enums.SkillLevel;
+import vn.edu.iuh.fit.backend.models.Job;
+import vn.edu.iuh.fit.backend.models.JobSkill;
+import vn.edu.iuh.fit.backend.models.Skill;
+import vn.edu.iuh.fit.backend.repositories.JobSkillRepositoryImpl;
 
 import java.util.List;
 import java.util.UUID;

@@ -3,8 +3,11 @@ package vn.edu.iuh.fit.repositories;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import vn.edu.iuh.fit.models.Address;
-import vn.edu.iuh.fit.models.Company;
+import vn.edu.iuh.fit.backend.models.Address;
+import vn.edu.iuh.fit.backend.models.Company;
+import vn.edu.iuh.fit.backend.repositories.CompanyRepositoryImpl;
+import vn.edu.iuh.fit.backend.models.Address;
+import vn.edu.iuh.fit.backend.models.Company;
 
 import java.util.List;
 import java.util.UUID;
